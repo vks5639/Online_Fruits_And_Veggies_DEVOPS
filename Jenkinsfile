@@ -4,9 +4,6 @@
    def Deploy_to_QA_pass=true
    def E2e_tests_pass= true
 pipeline {
-    triggers {
-        pollSCM '* * * * *'
-    }
 agent any
   
 stages {
@@ -17,6 +14,9 @@ stage('Build') {
    
             steps {
                script{
+			  
+                    properties([pipelineTriggers([pollSCM('* * * * *')])])
+                
         
         try{
             
