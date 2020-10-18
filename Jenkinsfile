@@ -4,7 +4,9 @@
    def Deploy_to_QA_pass=true
    def E2e_tests_pass= true
 pipeline {
-   
+    triggers {
+        pollSCM '* * * * *'
+    }
 agent any
   
 stages {
@@ -24,7 +26,7 @@ stage('Build') {
                 del /f Build.zip'''
                 } else {
                   echo 'No Build.zip Found'
-                   checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/vineetmurari/Online_Fruits_And_Veggies_DEVOPS.git']]])
+                   checkout([$class: 'GitSCM',  poll: true, branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/vineetmurari/Online_Fruits_And_Veggies_DEVOPS.git']]])
            fileOperations([fileZipOperation(folderPath: '', outputFolderPath: 'C:/Users/Dell/Desktop/Temparary/'), fileRenameOperation(destination: 'C:/Users/Dell/Desktop/Temparary/Build.zip', source: 'C:/Users/Dell/Desktop/Temparary/CI_CD_AWS_Pipeline.zip')])
                 }
                 
