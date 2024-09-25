@@ -25,7 +25,7 @@ pipeline {
                         
                         fileOperations([
                             fileZipOperation(folderPath: '', outputFolderPath: 'C:/Docs/CMU/Job Prep/QA/CICD/Build_Files'),
-                            fileRenameOperation(destination: 'Build1.zip', source: 'C:/Docs/CMU/Job Prep/QA/CICD/Build_Files/MyCICDPipeline.zip')
+                            fileRenameOperation(destination: 'Build1.zip', source: 'C:/Docs/CMU/Job Prep/QA/CICD/Build_Files/Build1.zip')
                         ])
                     } catch (Exception e) {
                         Build_pass = false
