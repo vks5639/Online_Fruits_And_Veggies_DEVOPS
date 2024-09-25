@@ -24,8 +24,8 @@ pipeline {
                         checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/vks5639/Online_Fruits_And_Veggies_DEVOPS.git']])
                         
                         fileOperations([
-                            fileZipOperation(folderPath: '', outputFileName: 'Build1.zip', outputFolderPath: 'C:/Docs/CMU/Job Prep/QA/CICD/Build_Files'),
-                            fileRenameOperation(destination: 'Build1.zip', source: 'C:/Docs/CMU/Job Prep/QA/CICD/Build_Files/Build1.zip')
+                            fileZipOperation(folderPath: 'C:/ProgramData/Jenkins/.jenkins/workspace/Building_Pipeline_Script_main', outputFolderPath: 'C:/Docs/CMU/Job Prep/QA/CICD/Build_Files'),
+                            fileRenameOperation(destination: 'C:/Docs/CMU/Job Prep/QA/CICD/Build_Files/Build1.zip', source: 'C:/Docs/CMU/Job Prep/QA/CICD/Build_Files/Building_Pipeline_Script_main.zip')
                         ])
                     } catch (Exception e) {
                         Build_pass = false
