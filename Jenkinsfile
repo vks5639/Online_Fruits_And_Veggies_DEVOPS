@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        if (fileExists('C:/Docs/CMU/Job Prep/QA/CICD/Build_Files/Build.zip')) {
+                        if (fileExists('C:/Docs/CMU/Job Prep/QA/CICD/Build_Files/Build1.zip')) {
                             bat '''
                             cd C:/Docs/CMU/Job Prep/QA/CICD/Build_Files
                             del /f Build1.zip
