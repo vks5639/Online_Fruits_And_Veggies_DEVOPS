@@ -24,7 +24,7 @@ pipeline {
                         checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/vks5639/Online_Fruits_And_Veggies_DEVOPS.git']])
                         
                         fileOperations([
-                            fileZipOperation(folderPath: '', outputFolderPath: 'C:/Docs/CMU/Job Prep/QA/CICD/Build_Files'),
+                            fileZipOperation(folderPath: '', outputFileName: 'Build1.zip', outputFolderPath: 'C:/Docs/CMU/Job Prep/QA/CICD/Build_Files'),
                             fileRenameOperation(destination: 'Build1.zip', source: 'C:/Docs/CMU/Job Prep/QA/CICD/Build_Files/Build1.zip')
                         ])
                     } catch (Exception e) {
